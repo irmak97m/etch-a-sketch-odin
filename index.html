@@ -18,10 +18,31 @@
         </div>
         <div id="footer">
             <div id="controls">
-                CONTROL BUTTONS
+                <div id="colorPicker">
+                    <input type="color" id="pickColor">
+                    <ul><!--set quickcolor class with js to child elements of ul-->
+                        <li id="black"></li>
+                        <li id="green"></li>
+                        <li id="blue"></li>
+                        <li id="indigo"></li>
+                        <li id="violet"></li>
+                        <li id="gray"></li>
+                        <li id="white"></li>
+                        <li id="red"></li>
+                        <li id="orange"></li>
+                        <li id="yellow"></li>
+                    </ul>
+                </div>
+                <div id="rangeset">
+                    <span>choosen grid</span>
+                    <input type="range" name="gridSize" id="gridSize">
+                    <button>Set Grid Size</button>
+                </div>
+                <button id="clearButton">Clear</button>
+                <!--CONTROL BUTTONS-->
                 <!--pickColor, quickChoiceColors, resolutionChoice, clear-->
             </div>
-            <span id="message">MESSAGE</span>
+            <span id="message">sdfg</span>
         </div>
     </div>
 </body>
