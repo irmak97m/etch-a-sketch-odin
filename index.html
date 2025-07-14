@@ -9,18 +9,21 @@
 </head>
 <body>
     <div id="body">
-        <div>
-            <h1 id="header">Etch A Sketch!</h1>
-            <p>Show me your skils</p>
+        <div id="header">
+            <h1>Etch a Sketch!</h1>
+            <h3>Show me your skils</h3>
         </div>
+        
         <div id="drawing">
-            DRAWING AREA
+            
         </div>
         <div id="footer">
             <div id="controls">
-                <div id="colorPicker">
-                    <input type="color" id="pickColor">
+                <div id="pickColor">
+                    <input  type="color" 
+                            id="colorPick">
                     <ul><!--set quickcolor class with js to child elements of ul-->
+                        <!--list will buttons maybe? or list will stay like this-->
                         <li id="black"></li>
                         <li id="green"></li>
                         <li id="blue"></li>
@@ -33,16 +36,21 @@
                         <li id="yellow"></li>
                     </ul>
                 </div>
-                <div id="rangeset">
-                    <span>choosen grid</span>
-                    <input type="range" name="gridSize" id="gridSize">
+                <div id="rangeSet">
+                    <span>30 x 30 Grid</span>
+                    <input  type="range" 
+                            name="gridSize" 
+                            id="gridSize" 
+                            min="1" max="100" 
+                            step="1"
+                            value="30">
                     <button>Set Grid Size</button>
                 </div>
                 <button id="clearButton">Clear</button>
                 <!--CONTROL BUTTONS-->
                 <!--pickColor, quickChoiceColors, resolutionChoice, clear-->
             </div>
-            <span id="message">sdfg</span>
+            <span id="message">msg</span>
         </div>
     </div>
 </body>
