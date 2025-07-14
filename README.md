@@ -13,11 +13,11 @@
 - when divs are created background will be white
 
 // initial page load
-    - divs created 30x30 (with 16px X 16px size)
-    - input grid value set to 30
-    - all divs background are white 
+    -       input grid value set to 30
+    -       divs created 30x30 (with 16px X 16px size)
+    -       all divs background are white 
     - picked color none
-    - grid size 30 x 30
+    -       grid size 30 x 30
     - message will load with picked color and grid size (initial)
 
 // when color picked

@@ -140,3 +140,10 @@ li {
     padding: 0.2rem 0.4rem;
     align-self: center;
 }
+
+.emptySquare {
+    background-color: white;
+    box-sizing: border-box;
+    border: 0.1px solid lightgray;
+    border-collapse: collapse;
+}
