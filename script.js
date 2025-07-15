@@ -19,6 +19,7 @@ let gridCount= 30;
 let divSize = 16;
 let divCount = 900;
 let colorVal;
+
 divCreate();
 
 function divCreate() {
