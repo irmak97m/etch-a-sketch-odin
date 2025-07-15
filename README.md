@@ -45,3 +45,8 @@
     - picked color
     - picked grid size
     - etc...
+
+// Button styles
+// Clear button hover (in and out) animation
+// Set Grid Size button animation
+// Mouse hover and mouse click action
