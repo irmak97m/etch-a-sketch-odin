@@ -6,6 +6,7 @@ let drawingDivs;
 
 const colorPicker = document.querySelector("#colorPick");
 const quickColorPicker = document.querySelectorAll("li");
+const randomColor = document.querySelector("#randomColor");
 
 const setGridBtn = document.querySelector("#rangeSet button");
 const rangeBar = document.querySelector("#rangeSet input");
@@ -19,7 +20,10 @@ let message = document.querySelector("#message");
 let gridCount= 30;
 let divSize = 16;
 let divCount = 900;
+
 let colorVal;
+let rVal, gVal, bVal, oVal, randomCheck;
+randomCheck = false;
 
 divCreate();
 readyDrawing();
@@ -29,11 +33,18 @@ function readyDrawing() {
     drawingDivs.forEach(div => {
         div.addEventListener("mouseenter", () => {
             if (colorVal !== undefined) {
-                div.style.backgroundColor = colorVal;
-                div.style.opacity = 0.5;
-                div.style.borderColor = "rgba(211, 211, 211, 0.3)";
+                if (randomCheck == false) {
+                    div.style.backgroundColor = colorVal;
+                    div.style.opacity = 0.5;
+                    div.style.borderColor = "rgba(211, 211, 211, 0.3)";
+                } else {
+                    colorVal = generateColor();
+                    div.style.backgroundColor = colorVal;
+                    div.style.opacity = 0.5;
+                    div.style.borderColor = "rgba(211, 211, 211, 0.3)";
+                }
             } else {
-                div.style.backgroundColor = colorVal;
+                //div.style.backgroundColor = colorVal;
                 div.style.opacity = 0.1;      
             }
         });
@@ -56,6 +67,14 @@ function divCreate() {
 
 function divRemove() {
     document.querySelectorAll(".draw").forEach(div => div.remove());
+};
+
+function generateColor() {
+    rVal = Math.floor(Math.random() * 256);
+    gVal = Math.floor(Math.random() * 256);
+    bVal = Math.floor(Math.random() * 256);
+    oVal = Math.floor(Math.random()*10 + 1 ) / 10;
+    return `rgba(${rVal}, ${gVal}, ${bVal}, ${oVal})`;
 };
 
 rangeBar.addEventListener("change", () => {
@@ -87,6 +106,8 @@ clearBtn.addEventListener("click",() => {
         picker.style.outline = "none";
     });
     colorPicker.style.outline = "none";
+    randomColor.style.outline = "none";
+    randomCheck = false;
     readyDrawing();
     message.textContent = "Drawing area cleared, pick a color!";
 });
@@ -98,6 +119,8 @@ colorPicker.addEventListener("change", () => {
     quickColorPicker.forEach(picker => {
         picker.style.outline = "none";
     });
+    randomColor.style.outline = "none";
+    randomCheck = false;
 });
 
 quickColorPicker.forEach(picker => {
@@ -108,7 +131,19 @@ quickColorPicker.forEach(picker => {
         colorVal = getComputedStyle(picker).backgroundColor;
         picker.style.outline = "2px solid black";
         colorPicker.style.outline = "none";
+        randomColor.style.outline = "none";
+        randomCheck = false;  
         message.textContent = `Your color set to ${picker.id}`;
    });
 });
 
+randomColor.addEventListener("click", () => {
+    randomColor.style.outline = "2px solid black";
+    quickColorPicker.forEach(picker => {
+        picker.style.outline = "none";
+    });
+    colorPicker.style.outline = "none";
+    randomCheck = true;
+    colorVal = generateColor();
+    message.textContent = `I don't know what color i set but let's see how it will end :)`
+});
